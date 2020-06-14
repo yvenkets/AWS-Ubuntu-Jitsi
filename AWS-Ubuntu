@@ -1,4 +1,3 @@
-For cloud instalation
 #!/bin/bash
 sudo su
 apt update
