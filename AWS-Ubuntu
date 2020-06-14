@@ -1,0 +1,18 @@
+For cloud instalation
+#!/bin/bash
+sudo su
+apt update
+hostnamectl set-hostname one.venketraman.com
+sudo ufw allow 22,80,443,4443,9001/tcp
+sudo ufw allow 10000/udp
+sudo ufw enable
+sudo ufw status verbose
+sudo apt install apt-transport-https
+sudo apt-add-repository universe
+sudo apt update
+curl https://download.jitsi.org/jitsi-key.gpg.key | sudo sh -c 'gpg --dearmor > /usr/share/keyrings/jitsi-keyring.gpg'
+echo 'deb [signed-by=/usr/share/keyrings/jitsi-keyring.gpg] https://download.jitsi.org stable/' | sudo tee /etc/apt/sources.list.d/jitsi-stable.list > /dev/null
+sudo apt update
+//sudo apt install jitsi-meet
+sudo add-apt-repository ppa:certbot/certbot
+//sudo /usr/share/jitsi-meet/scripts/install-letsencrypt-cert.sh
